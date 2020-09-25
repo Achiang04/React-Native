@@ -1,6 +1,7 @@
 import React from 'react';
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import {View, Image} from 'react-native';
+import FontAwesome5 from 'react-native-vector-icons/dist/FontAwesome5';
 // import {createStackNavigator} from '@react-navigation/stack';
 
 const Tab = createBottomTabNavigator();
@@ -41,9 +42,9 @@ export default function MyTabs() {
     <Tab.Navigator>
       <Tab.Screen
         options={{
-          title: 'Profile',
-          tabBarIcon: (props) => (
-            <IconBottom data={props} image={require('../Gambar/3.png')} />
+          tabBarLabel: 'Profile',
+          tabBarIcon: ({color}) => (
+            <FontAwesome5 name={'user-circle'} color={color} size={24} />
           ),
         }}
         name="Profile"
@@ -51,9 +52,9 @@ export default function MyTabs() {
       />
       <Tab.Screen
         options={{
-          title: 'Skill',
-          tabBarIcon: (props) => (
-            <IconBottom data={props} image={require('../Gambar/2.png')} />
+          tabBarLabel: 'Skill',
+          tabBarIcon: ({color}) => (
+            <FontAwesome5 name={'book'} color={color} size={24} />
           ),
         }}
         name="Skill"
@@ -61,9 +62,9 @@ export default function MyTabs() {
       />
       <Tab.Screen
         options={{
-          title: 'About',
-          tabBarIcon: (props) => (
-            <IconBottom data={props} image={require('../Gambar/1.png')} />
+          tabBarLabel: 'About',
+          tabBarIcon: ({color}) => (
+            <FontAwesome5 name={'address-card'} color={color} size={24} />
           ),
         }}
         name="About"

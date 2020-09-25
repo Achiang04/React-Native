@@ -1,5 +1,6 @@
 import React, {useState} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, StyleSheet} from 'react-native';
+import MaterialCommunityIcons from 'react-native-vector-icons/dist/MaterialCommunityIcons';
 
 export default function Skill() {
   const [skill, setSkill] = useState([
@@ -65,12 +66,31 @@ export default function Skill() {
     },
   ]);
 
-  const Skill = ({item}) => <Text>{item.skillName}</Text>;
-  const catNam = ({item}) => <Text>{item.categoryName}</Text>;
+  const List = (props) => {
+    return (
+      <View style={styles.container}>
+        <MaterialCommunityIcons name={props.icon} size={50} />
+        <Text>{props.text}</Text>
+      </View>
+    );
+  };
 
   return (
     <View>
-      <FlatList data={skill} renderItem={(Skill, catNam)} />
+      <FlatList
+        data={skill}
+        renderItem={({item}) => (
+          <List text={item.skillName} icon={item.iconName} />
+        )}
+      />
     </View>
   );
 }
+
+const styles = StyleSheet.create({
+  container: {
+    padding: 35,
+    borderWidth: 1,
+    margin: 10,
+  },
+});
