@@ -23,7 +23,7 @@ export default function HomeScreen({route}) {
   };
 
   const onBuyClick = (product) => {
-    const foundProduct = products.find((p) => p.id == product.id);
+    const foundProduct = products.find((p) => p.id === product.id);
     if (foundProduct.stock > 0) {
       foundProduct.stock--;
       setPrice(price + parseInt(foundProduct.harga));
@@ -31,7 +31,7 @@ export default function HomeScreen({route}) {
   };
 
   const onSearchQueryChange = (q) => {
-    if (q == '') {
+    if (q === '') {
       setFilter(products);
     } else {
       const filtered = products.filter((p) => p.nama.toLowerCase().includes(q));
@@ -40,7 +40,7 @@ export default function HomeScreen({route}) {
     }
   };
 
-  const updatePrice = (price) => {};
+  // const updatePrice = (price) => {};
 
   return (
     <View style={styles.container}>
